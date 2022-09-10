@@ -1,5 +1,5 @@
 export interface HeaderElementProps {
-    onClick?: React.MouseEvent<HTMLElement>;
+    onClick?: () => void;
     label: string;
     isSelected?: boolean;
 }
