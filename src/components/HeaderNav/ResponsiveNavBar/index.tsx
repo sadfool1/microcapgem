@@ -7,43 +7,30 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import Stack from '@mui/material/Stack';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import AlarmIcon from '@mui/icons-material/Alarm';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { HeaderElements } from '../../../constant/headerElements';
-
+import Logo from './Logo';
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -80,7 +67,7 @@ const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <Logo />
           <Typography
             variant="h5"
             noWrap
@@ -110,17 +97,14 @@ const ResponsiveAppBar = () => {
               </Button>
             ))}
           </Box>
-
-    <Stack direction="row" spacing={1}>
-      <IconButton aria-label="delete">
-        <TelegramIcon />
-      </IconButton>
-      <IconButton aria-label="delete">
-        <TwitterIcon />
-      </IconButton>
-    </Stack>
-
-
+          <Stack direction="row" spacing={1}>
+            <IconButton aria-label="telegram_icon">
+              <TelegramIcon />
+            </IconButton>
+            <IconButton aria-label="twitter_icon">
+              <TwitterIcon />
+            </IconButton>
+          </Stack>
         </Toolbar>
       </Container>
     </AppBar>
